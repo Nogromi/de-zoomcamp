@@ -89,7 +89,7 @@ How many columns need to be renamed to snake case?
 
 Once exported, how many partitions (folders) are present in Google Cloud?
 
-* 96
+* 96 ✔
 * 56
 * 67
 * 108
