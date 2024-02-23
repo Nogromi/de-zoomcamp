@@ -1,3 +1,2 @@
 GCP_GCS_BUCKET=your_bucket_name
 GOOGLE_APPLICATION_CREDENTIALS=/path/to/your/service_account_key.json
-"\\wsl.localhost\Ubuntu-22.04\home\anatolii\dataengineering\data-engineering-zoomcamp\de-zoomcamp-dbt-412419-46ac80192bd9.json"
