@@ -172,12 +172,20 @@ Now let's send our actual data:
 Iterate over the records in the dataframe
 
 ```python
+# Iterate over the records in the dataframe
+t0 = time.time()
 for row in df_green.itertuples(index=False):
     row_dict = {col: getattr(row, col) for col in row._fields}
-    print(row_dict)
-    break
+    producer.send(topic_name, value=row_dict)
+    # print(f"Sent: {message}")
+t1 = time.time()
+print(f'Send took {(t1 - t0):.2f} seconds')
 
-    # TODO implement sending the data here
+producer.flush()
+
+t2 = time.time()
+print(f'Flush took {(t2 - t1):.2f} seconds')
+
 ```
 
 Note: this way of iterating over the records is more efficient compared
@@ -190,7 +198,13 @@ to `iterrows`
 * How much time in seconds did it take? (You can round it to a whole number)
 * Make sure you don't include sleeps in your code
 
+Answer
 
+```bash
+Send took 60.16 seconds
+Flush took 0.01 seconds
+total time: 60.16 seconds
+```
 ## Creating the PySpark consumer
 
 Now let's read the data with PySpark. 
